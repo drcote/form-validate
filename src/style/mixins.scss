@@ -1,0 +1,10 @@
+@import './variables';
+
+@mixin font-text ($size, $line, $color: #FFFFFF, $font : 'Montserrat', $weight: 500, $style: normal) {
+  font-family: $font, "Helvetica", sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line;
+  color: $color;
+  font-style: $style;
+}

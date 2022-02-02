@@ -1,0 +1,65 @@
+@import '../../style/mixins';
+
+%row {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 1px;
+  background-color: #FFFFFF;
+  right: 22px;
+  top: 15px;
+}
+
+.select {
+  @include font-text(15px, 18px);
+  margin-top: 11px;
+  cursor: pointer;
+
+  &__text {
+    width: 100%;
+    background-color: $color-input-bg;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    padding: 7px 0 8px 18px;
+    position: relative;
+
+    &::after {
+      @extend %row;
+      right: 22px;
+      transform: rotate(-45deg);
+    }
+
+    &::before {
+      @extend %row;
+      right: 30px;
+      transform: rotate(45deg);
+    }
+  }
+
+  &__text_active {
+    &::after {
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__options {
+    background: $color-input-bg;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    padding: 8px 0;
+    margin-top: 11px;
+  }
+
+  &__option {
+    list-style-type: none;
+    padding: 7px 0 8px 18px;
+
+    &_active {
+      background-color: $color-input-active;
+    }
+  }
+}

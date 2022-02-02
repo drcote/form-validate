@@ -1,5 +1,120 @@
+@import '../../style/mixins';
 
 .form {
   width: 340px;
   margin: 0 auto;
+  padding-top: 70px;
+  padding-bottom: 38px;
+
+  &__title {
+    @include font-text(30px, 37px);
+    text-transform: uppercase;
+  }
+
+  &__desc {
+    @include font-text(15px, 18px, $color-white-trans);
+    display: inline-block;
+    letter-spacing: 0.01em;
+    margin-bottom: 15px;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__left {
+    margin-right: 8px;
+    flex-grow: 2;
+    width: 0;
+
+    &_one {
+      flex-grow: 1;
+    }
+  }
+
+  &__right {
+    flex-grow: 1;
+    width: 0;
+
+    &_one {
+      flex-grow: 1;
+    }
+  }
+
+  &__sms-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  &__sms-checkbox:checked + &__sms-label::after {
+    content: '';
+  }
+
+  &__sms-label {
+    @include font-text(15px, 18px, $color-white-trans);
+    letter-spacing: 0.01em;
+    display: inline-flex;
+    margin-top: 23px;
+    position: relative;
+    margin-left: 21px;
+
+    &::before {
+      content: '';
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 1px solid $color-white;
+      display: inline-block;
+      position: absolute;
+      left: -21px;
+      top: 0;
+    }
+
+    &::after {
+      border-radius: 50%;
+      width: 7px;
+      height: 7px;
+      background-color: $color-white;
+      position: absolute;
+      top: 4.5px;
+      left: -16px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      background-color: $color-input-bg;
+      backdrop-filter: blur(15px);
+      border-radius: 10px;
+      border: 0;
+      margin-top: 11px;
+      padding-left: 18px;
+      padding-top: 7px;
+      padding-bottom: 8px;
+    }
+
+    input[type='submit'] {
+      @include font-text(15px, 18px, $color-white-trans);
+      letter-spacing: 0.01em;
+      border-radius: 0;
+      margin-top: 22px;
+      align-self: center;
+      padding: 13px 30px;
+    }
+
+    ::placeholder {
+      @include font-text(15px, 18px, $color-white-trans);
+      letter-spacing: 0.01em;
+    }
+
+    h2 {
+      @include font-text(20px, 24px, $color-white-trans);
+      margin-top: 30px;
+    }
+  }
 }
